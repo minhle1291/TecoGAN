@@ -259,14 +259,14 @@ if FLAGS.mode == 'inference':
             output_frame = sess.run(outputs, feed_dict=feed_dict)
             srtime += time.time()-t0
             
-            if(i >= 5): 
-                name, _ = os.path.splitext(os.path.basename(str(inference_data.paths_LR[i])))
-                filename = FLAGS.output_name+'_'+name
-                print('saving image %s' % filename)
-                out_path = os.path.join(image_dir, "%s.%s"%(filename,FLAGS.output_ext))
-                save_img(out_path, output_frame[0])
-            else:# First 5 is a hard-coded symmetric frame padding, ignored but time added!
-                print("Warming up %d"%(5-i))
+            #if(i >= 5): 
+            name, _ = os.path.splitext(os.path.basename(str(inference_data.paths_LR[i])))
+            filename = FLAGS.output_name+'_'+name
+            print('saving image %s' % filename)
+            out_path = os.path.join(image_dir, "%s.%s"%(filename,FLAGS.output_ext))
+            save_img(out_path, output_frame[0])
+            #else:# First 5 is a hard-coded symmetric frame padding, ignored but time added!
+            #    print("Warming up %d"%(5-i))
     print( "total time " + str(srtime) + ", frame number " + str(max_iter) )
         
 # The training mode
