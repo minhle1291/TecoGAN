@@ -19,7 +19,7 @@ def inference_data_loader(FLAGS):
         downSP = True
         
     image_list_LR_temp = os.listdir(filedir)
-    image_list_LR_temp = [_ for _ in image_list_LR_temp if _.endswith(".png")] 
+    image_list_LR_temp = [_ for _ in image_list_LR_temp if (_.endswith(".png") or _.endswith(".PNG") or _.endswith(".jpg") or _.endswith(".jpeg"))]
     image_list_LR_temp = sorted(image_list_LR_temp) # first sort according to abc, then sort according to 123
     image_list_LR_temp.sort(key=lambda f: int(''.join(list(filter(str.isdigit, f))) or -1))
     if FLAGS.input_dir_len > 0:
