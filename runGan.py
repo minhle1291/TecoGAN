@@ -67,7 +67,7 @@ if( runcase == 0 ): # download inference data, trained models
 elif( runcase == 1 ): # inference a trained model
     
     dirstr = './results/' # the place to save the results
-    testpre = ['calendar'] # the test cases
+    testpre = ['inputs'] # the test cases
 
     if (not os.path.exists(dirstr)): os.mkdir(dirstr)
     
